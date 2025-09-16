@@ -45,11 +45,12 @@ class TestEnvironment(unittest.TestCase):
 
         from openai import OpenAI, AuthenticationError
 
-        llm = OpenAI()
+        llm = OpenAI(base_url="https://api.deepseek.com")
         
         try:
             models = llm.models.list()
         except AuthenticationError as e:
+            print(f"发生异常: {str(e)}")
             models = None
         self.assertIsNotNone(
             models,
