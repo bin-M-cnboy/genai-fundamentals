@@ -32,7 +32,8 @@ retriever = VectorRetriever(
 
 # 搜索
 result = retriever.search(query_text="Toys coming alive", top_k=5)
-
+# vec = embedder.embed_query("Toys coming alive")
+# print(len(vec))  # 1536
 # 输出结果
 for item in result.items:
     print(item.content, item.metadata["score"])
